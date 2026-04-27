@@ -4,7 +4,7 @@ class Solution {
         Arrays.sort(nums);
         int target = 0;
 
-        List<int[]> result = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
 
         int i, left, right;
 
@@ -22,7 +22,7 @@ class Solution {
                 int sum = nums[i] + nums[left] + nums[right];
 
                 if (sum == target) {
-                    result.add(new int[]{nums[i], nums[left], nums[right]});
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
 
                     left++;
                     right--;
@@ -39,11 +39,6 @@ class Solution {
             }
         }
 
-        List<List<Integer>> finalResult = new ArrayList<>();
-        for (int[] arr : result) {
-            finalResult.add(Arrays.asList(arr[0], arr[1], arr[2]));
-        }
-
-        return finalResult;
+        return result;
     }
 }
